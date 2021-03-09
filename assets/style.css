@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bubblegum+Sans&display=swap');
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.game-container {
+    background-color: #9FC5F8;
+    height: 70%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.game-header {
+    text-align: center;
+    padding: 10px;
+}
+
+.game-header span {
+    background-color: #FFFF00;
+    border: solid 2px black;
+}
+
+.fun-facts {
+    font-size: 1.1rem;
+    background-color: #fff;
+}
+
+.game-rules {
+    font-size: 1.1rem;
+    background-color: #fff;
+}
+
+.game-play-area {
+    background-color: white;
+    border: solid 2px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shape-display-box {
+    height: 200px;
+    width: 200px;
+    border: solid 2px black;
+    background-color: #e01f01;
+}
