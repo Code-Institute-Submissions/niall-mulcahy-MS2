@@ -8,11 +8,11 @@ html, body {
 
 .game-container {
     background-color: #9FC5F8;
-    height: 70%;
+    height: 90%;
     padding: 10px;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .game-header {
@@ -48,4 +48,65 @@ html, body {
     width: 200px;
     border: solid 2px black;
     background-color: #e01f01;
+}
+
+.start-button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-shapes {
+    margin-top: 20px;
+    text-align: center;
+}
+
+*, *:before, *:after{ 
+    box-sizing: border-box;
+
+} 
+.css-shapes-square{ 
+    height: 150px; 
+    width: 150px; 
+    background-color: #e01f01; 
+}
+
+.css-shapes-triangle{ 
+    height: 150px; 
+    width: 150px; 
+    border-left: 100px solid transparent; 
+    border-right: 100px solid transparent; 
+    border-bottom: 150px solid rgb(83, 241, 69); 
+}
+
+.css-shapes-circle{ 
+    position: relative; 
+    height: 150px; 
+    width: 150px; 
+    background-color: #428bca; 
+    border-radius: 150px; 
+}
+
+.css-shapes-trapezoid{ 
+    position: relative; 
+    height: 150px; 
+    width: 220px; 
+    border-left: 60px solid transparent; 
+    border-right: 60px solid transparent; 
+    border-bottom: 140px solid #428BCA; 
+}
+
+.css-shapes-diamond{ 
+    position: relative; 
+    height: 110px; 
+    width: 110px; 
+    background-color: #428BCA; 
+    top: 25px; 
+    transform: rotate(45deg); 
+    -webkit-transform: rotate(45deg); 
+}
+
+.text-center {
+    text-align: center;
 }
