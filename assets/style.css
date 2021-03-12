@@ -3,16 +3,12 @@
 
 html, body {
   height: 100%;
-  overflow: hidden;
 }
 
 .game-container {
     background-color: #9FC5F8;
     height: 90%;
     padding: 10px;
-    margin-top: 30px;
-    margin-left: 30px;
-    margin-right: 30px;
 }
 
 .game-header {
@@ -59,8 +55,9 @@ html, body {
 
 .game-shapes {
     margin-top: 20px;
-    text-align: center;
 }
+
+/*-------------------------------------------- Shapes made on generator tool found here: https://coveloping.com/tools/css-shapes-generator */
 
 *, *:before, *:after{ 
     box-sizing: border-box;
@@ -69,7 +66,8 @@ html, body {
 .css-shapes-square{ 
     height: 150px; 
     width: 150px; 
-    background-color: #e01f01; 
+    background-color: #454372; 
+    margin: auto;
 }
 
 .css-shapes-triangle{ 
@@ -77,15 +75,17 @@ html, body {
     width: 150px; 
     border-left: 100px solid transparent; 
     border-right: 100px solid transparent; 
-    border-bottom: 150px solid rgb(83, 241, 69); 
+    border-bottom: 150px solid #4D8B31; 
+    margin: auto;
 }
 
 .css-shapes-circle{ 
     position: relative; 
     height: 150px; 
     width: 150px; 
-    background-color: #428bca; 
+    background-color: #FFC800; 
     border-radius: 150px; 
+    margin: auto;
 }
 
 .css-shapes-trapezoid{ 
@@ -94,19 +94,31 @@ html, body {
     width: 220px; 
     border-left: 60px solid transparent; 
     border-right: 60px solid transparent; 
-    border-bottom: 140px solid #428BCA; 
+    border-bottom: 140px solid #FF8427; 
+    margin: auto;
 }
 
-.css-shapes-diamond{ 
+.css-shapes-bookmark{ 
     position: relative; 
-    height: 110px; 
-    width: 110px; 
-    background-color: #428BCA; 
-    top: 25px; 
-    transform: rotate(45deg); 
-    -webkit-transform: rotate(45deg); 
+    height: 135px; 
+    width: 0px; 
+    top: 12px; 
+    left: 50px;
+    border-left: 100px solid #EA2B1F; 
+    border-right: 100px solid #EA2B1F; 
+    border-bottom: 40px solid transparent; 
 }
 
-.text-center {
+.shape {
+    transform: scale(1);
+}
+
+.shape:active {
+    transform: scale(.9);
+}
+
+.game-footer {
     text-align: center;
+    background-color: #F8D2A0;
+    height: 10vh;
 }
