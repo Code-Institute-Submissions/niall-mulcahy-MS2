@@ -122,3 +122,8 @@ html, body {
     background-color: #F8D2A0;
     height: 10vh;
 }
+
+#result {
+    font-size: larger;
+    color: white;
+}

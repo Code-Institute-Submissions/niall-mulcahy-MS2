@@ -4,13 +4,23 @@ let circle = $(".css-shapes-circle")
 let trapezoid = $(".css-shapes-trapezoid")
 let bookmark = $(".css-shapes-bookmark")
 
-let shapes = [square, triangle, circle, trapezoid, bookmark]
+let shapes = ["square", "triangle", "circle", "trapezoid", "bookmark"];
 
-function generateShapeArray(){
-    $("#start-button").click(function() {
-        
-    })
-}
+
+function generateSingleShape () {
+    let singleShape = shapes[Math.floor(Math.random() * shapes.length)];
+    var questionArray = [];
+    questionArray.push(singleShape);
+    console.log(questionArray);
+};
+
+$("#start-button").click(function (){
+    var newArray = [];
+    for (let i = 0; i < 3; i++){
+        generateSingleShape();
+    }
+})
+
 
 function displayArray() {
 
