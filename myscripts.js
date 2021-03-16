@@ -6,20 +6,15 @@ let bookmark = $(".css-shapes-bookmark")
 
 let shapes = ["square", "triangle", "circle", "trapezoid", "bookmark"];
 
-
-function generateSingleShape () {
-    let singleShape = shapes[Math.floor(Math.random() * shapes.length)];
-    var questionArray = [];
-    questionArray.push(singleShape);
-    console.log(questionArray);
-};
-
-$("#start-button").click(function (){
+function generateQuestionArray () {
     var newArray = [];
     for (let i = 0; i < 3; i++){
-        generateSingleShape();
+        newArray.push(shapes[Math.floor(Math.random() * shapes.length)]);
     }
-})
+    console.log(newArray)
+};
+
+$("#start-button").click(generateQuestionArray);
 
 
 function displayArray() {
