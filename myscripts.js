@@ -7,32 +7,60 @@ let bookmark = $(".css-shapes-bookmark")
 let shapes = [square, triangle, circle, trapezoid, bookmark];
 
 function generateQuestionArray () {
-    newArray = [];
+    questionArray = [];
     for (let i = 0; i < 3; i++){
-        newArray.push(shapes[Math.floor(Math.random() * shapes.length)]);
+        questionArray.push(shapes[Math.floor(Math.random() * shapes.length)]);
     }
-    console.log(newArray);
+    console.log(questionArray);
 
-    for (let i = 0; i < 3; i++) {
-        setTimeout(function () {
-            newArray[i].clone().appendTo(".shape-display-box");
-        }, 1000);
-    };
-};
+    setTimeout(function() {questionArray[0].clone().appendTo(".shape-display-box"); }, 500);
+    setTimeout(function() {$(".shape-display-box").empty(); }, 1500);
+    setTimeout(function() {questionArray[1].clone().appendTo(".shape-display-box"); }, 2000);
+    setTimeout(function() {$(".shape-display-box").empty(); }, 3000);
+    setTimeout(function() {questionArray[2].clone().appendTo(".shape-display-box"); }, 3500);
+    setTimeout(function() {$(".shape-display-box").empty(); }, 4500);
+}
 
 $("#start-button").click(generateQuestionArray);
 
-$("button.copy").click(function() {
-    $(this).prev().children("img").clone().appendTo("#copiedimages");
+$("#submit-button").click(checkAnswer);
+
+var answerArray = [];
+
+square.click(function() {
+    answerArray.push(square);
+    console.log(answerArray);
 });
 
-function generateAnswerArray() {
+triangle.click(function() {
+    answerArray.push(triangle);
+    console.log(answerArray);
+});
 
+circle.click(function() {
+    answerArray.push(circle);
+    console.log(answerArray);
+});
+
+trapezoid.click(function() {
+    answerArray.push(trapezoid);
+    console.log(answerArray);
+});
+
+bookmark.click(function() {
+    answerArray.push(bookmark);
+    console.log(answerArray);
+});
+
+function checkAnswer(questionArray, answerArray) {
+    if (JSON.stringify(questionArray) === JSON.stringify(answerArray)) {
+        alert ("You got it right!");}
+        else {
+            alert ("nice try! Better luck next time!");
+        }
+    questionArray = [];
 }
 
-function checkAnswer() {
-
-}
 
 function correctAnswerCounter() {
 
