@@ -1,4 +1,9 @@
-let questionArray = [];
+//let questionArray = [];
+var questionArray = [50];
+var numberOfShapes = 5;
+var iterationOfShapes = 10;
+var shapesToDisplay = 5;
+populateQuestionArray();
 let answerArray = [];
 
 let square = $(".css-shapes-square");
@@ -7,23 +12,50 @@ let circle = $(".css-shapes-circle");
 let trapezoid = $(".css-shapes-trapezoid");
 let bookmark = $(".css-shapes-bookmark");
 
-let shapes = [square, triangle, circle, trapezoid, bookmark];
+var shapes = [square, triangle, circle, trapezoid, bookmark];
 
-function generateQuestionArray () {
-    for (let i = 0; i < 3; i++){
-        questionArray.push(shapes[Math.floor(Math.random() * shapes.length)]);
+function populateQuestionArray(){
+    for (let i = 0; i < iterationOfShapes; i++) {
+            for (let j = 0; j < numberOfShapes; j++) {
+                questionArray[(i * numberOfShapes) + j] = j;
+            }           
     }
-    console.log(questionArray);
+}
 
-    setTimeout(function() {questionArray[0].clone().appendTo(".shape-display-box"); }, 500);
+
+function shuffleArray() {
+    for (let i = 0; i < questionArray.length; i++){
+        rand = Math.floor(Math.random() * questionArray.length);
+        temp = questionArray[i];
+        questionArray[i] = questionArray[rand];
+        questionArray[rand] = temp;
+    }
+    for(let i = 0; i < 30; i++){
+        console.log(questionArray[i]);
+    }
+}
+
+
+
+
+function displaySequence (shapesToDisplay) {
+    shuffleArray();
+    for (let i = 1; i < shapesToDisplay; i++){
+        console.log(questionArray[i]);
+        setTimeout(function() {shapes[questionArray[i]].clone().appendTo(".shape-display-box"); }, 3000);
+        setTimeout(function() {$(".shape-display-box").empty(); }, 5000);    
+    }
+
+    /*setTimeout(function() {questionArray[0].clone().appendTo(".shape-display-box"); }, 500);
     setTimeout(function() {$(".shape-display-box").empty(); }, 1500);
     setTimeout(function() {questionArray[1].clone().appendTo(".shape-display-box"); }, 2000);
     setTimeout(function() {$(".shape-display-box").empty(); }, 3000);
     setTimeout(function() {questionArray[2].clone().appendTo(".shape-display-box"); }, 3500);
     setTimeout(function() {$(".shape-display-box").empty(); }, 4500);
+*/
 }
 
-$("#start-button").click(generateQuestionArray);
+$("#start-button").click(displaySequence);
 $("#submit-button").click(checkAnswer);
 
 
@@ -53,7 +85,7 @@ $("#submit-button").click(checkAnswer);
     });
 
 function checkAnswer(shapes){
-    console.log("hello my name is human");
+    console.log();
     answerArray = [];
     console.log(answerArray)
 }
