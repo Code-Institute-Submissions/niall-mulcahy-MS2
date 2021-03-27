@@ -39,6 +39,9 @@ function shuffleArray() {
     }    
 }
 
+function displaySequenceCaller(){
+    displaySequence(shapesToDisplay);
+}
 
 
 
@@ -68,7 +71,7 @@ function displaySequence (shapesToDisplay) {
 */
 }
 
-//$("#start-button").click(displaySequence);
+$("#start-button").click(displaySequenceCaller);
 //$("#submit-button").click(checkAnswer);
 
 
@@ -92,49 +95,53 @@ function displaySequence (shapesToDisplay) {
         answerArray.push(4);
     });
 
-function checkAnswer(shapesToDisplay){
-    let returnValue = true;
-	if (answerArray.length != shapesToDisplay){
+function correctNumberOfAnswers(p1){
+    var returnValue = true;
+	if (answerArray.length != p1){
         returnValue = false;	
         alert("lengths not equal");		
 	}
-	if (returnValue == true){
-        
-		for (let i = 0; i < shapesToDisplay; i++){
-			if(answerArray[i] != questionArray[i]){
-                alert(`failed on ${i}`);
-                alert(`answerArray ${answerArray[i]}`);
-                alert(`questionArray ${questionArray[i]}`)
-				returnValue = false;			
-				//break;
-			}
-		}        
-	}
-	if (returnValue == true) {
-		disableButtons(2);
-        alert(`well done you got ${shapesToDisplay} correct`)
+    return returnValue;    
+}
+
+function areAnswersCorrect(p1){
+    var returnValue = true;
+    for (let i = 0; i < shapesToDisplay; i++){
+		if(answerArray[i] != questionArray[i]){
+            alert(`failed on ${i}`);
+            alert(`answerArray ${answerArray[i]}`);
+            alert(`questionArray ${questionArray[i]}`)
+			returnValue = false;			
+			//break;
+		}
+    } 
+    return returnValue;
+}
+function checkAnswer(shapesToDisplay){
+    var userMessage;
+    // Correct number of answers and all correct
+    if (correctNumberOfAnswers(shapesToDisplay) && areAnswersCorrect(shapesToDisplay)){       
+        userMessage = `Well done you got ${shapesToDisplay} correct`;
         shapesToDisplay++;
-        alert(`Shapes to display now ${shapesToDisplay} `)
-	} else {
-		if (shapesToDisplay - 1 > highScore){
+    }else{
+        userMessage = "User Input Incorrect";
+        // User did not enter correct solution
+        // check if this is a new highest score
+        if (shapesToDisplay - 1 > highScore){
+            userMessage +='\n\nYou did however set a new\nrecord of ${shapesToDisplay - 1} correct responses';
 			highScore = shapesToDisplay - 1;
 			var highScoreCounter = document.getElementById('high-score');
 			highScoreCounter.innerHTML = highScore;
 		}
-		//Notify the player that he failed and how many he got right
-        // also tell him if it is a new record
         shapesToDisplay = numberOfShapes - 2;
-        disableButtons(2);
-        alert("unlucky");
         answerArray.length = 0;
     }
-    alert(`${shapesToDisplay}`)
-	return returnValue;
+    // Only enable start button   
+    disableButtons(2);
+    // Notify user of outcome of game 
+    alert(`${userMessage}`)	
 }
 
-function correctAnswerCounter() {
-	
-}
 
 function disableButtons(param){
     switch (param){
@@ -187,3 +194,4 @@ function disableAllButtons(){
 		shapeButtons[i].style.pointerEvents = 'none';
 	}
 }
+
