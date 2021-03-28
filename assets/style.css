@@ -128,3 +128,26 @@ html, body {
     background-color: #F8D2A0;
     height: 35px;
 }
+
+/*-------------------------------------------- Small Shapes */
+.small-square {
+    height: 30px;
+    width: 30px;
+    background-color: #3e35ee; 
+    margin: auto;
+    float: right;
+    margin-bottom: 1px;
+    margin-right: 5px;
+}
+
+
+.small-circle {
+    height: 30px; 
+    width: 30px; 
+    background-color: #FFC800; 
+    margin: auto;
+    border-radius: 30px;
+    margin-bottom: 1px;
+    float: right;
+    margin-right: 5px;
+}
