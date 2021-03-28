@@ -119,6 +119,8 @@ function checkAnswer(){
     // Correct number of answers and all correct
     if (correctNumberOfAnswers(shapesToDisplay) && areAnswersCorrect(shapesToDisplay)){       
         userMessage = `Well done you got ${shapesToDisplay} correct`;
+        let tempStreak = document.getElementById('streak');
+        tempStreak.innerHTML = shapesToDisplay;
         shapesToDisplay++;
     }else{
         userMessage = "User Input Incorrect";
@@ -127,8 +129,10 @@ function checkAnswer(){
         if (shapesToDisplay - 1 > highScore){
             userMessage +=`\n\nYou did however set a new\nrecord of ${shapesToDisplay - 1} correct responses`;
 			highScore = shapesToDisplay - 1;
-			var highScoreCounter = document.getElementById('high-score');
-			highScoreCounter.innerHTML = highScore;
+			var highScoreCounter = document.getElementById('session-record');
+            highScoreCounter.innerHTML = highScore;
+            //var streak = document.getElementById('streak');
+            tempStreak.innerHTML = 0;
 		}
         shapesToDisplay = numberOfShapes - 2;
         answerArray.length = 0;

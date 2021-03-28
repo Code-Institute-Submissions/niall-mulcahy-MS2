@@ -7,32 +7,33 @@ html, body {
 
 .game-container {
     background-color: #9FC5F8;
-    height: 90%;
+    height: 100%;
     padding: 10px;
 }
 
 .game-header {
     text-align: center;
-    padding: 10px;
+    padding: 15px;
 }
 
 .game-header span {
-    background-color: #FFFF00;
+    background-color: #F8EFA0;
     border: solid 2px black;
+    border-radius: 15px;
 }
 
 .fun-facts {
-    font-size: 1.1rem;
-    background-color: #fff;
+    font-size: 0.9rem;
+    background-color: #F8EFA0;
 }
 
 .game-rules {
-    font-size: 1.1rem;
-    background-color: #fff;
+    font-size: 0.9rem;
+    background-color: #F8EFA0;
 }
 
 .game-play-area {
-    background-color: white;
+    background-color: #EBF3FD;
     border: solid 2px black;
     display: flex;
     justify-content: center;
@@ -42,14 +43,24 @@ html, body {
 
 
 .start-button {
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-right: 10px;
+}
+
+#start-button {
+    width: 180px;
+}
+
+#submit-button {
+    margin-left: 10px;
+    width: 180px;
 }
 
 .game-shapes {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 /*-------------------------------------------- Shapes made on generator tool found here: https://coveloping.com/tools/css-shapes-generator */
@@ -61,7 +72,7 @@ html, body {
 .css-shapes-square{ 
     height: 150px; 
     width: 150px; 
-    background-color: #454372; 
+    background-color: #3e35ee; 
     margin: auto;
 }
 
@@ -98,7 +109,7 @@ html, body {
     height: 135px; 
     width: 0px; 
     top: 12px; 
-    left: 10px;
+    left: 30px;
     border-left: 100px solid #EA2B1F; 
     border-right: 100px solid #EA2B1F; 
     border-bottom: 40px solid transparent; 
@@ -115,10 +126,5 @@ html, body {
 .game-footer {
     text-align: center;
     background-color: #F8D2A0;
-    height: 10vh;
-}
-
-#result {
-    font-size: larger;
-    color: white;
+    height: 35px;
 }

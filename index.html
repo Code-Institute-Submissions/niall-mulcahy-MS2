@@ -12,25 +12,11 @@
     <div class="game-container">
 
         <div class="game-header">
-            <h1><span>Shape Memory Game</span></h1>
+            <h2><span>Shape Memory Game</span></h2>
         </div>
 
         <div class="game-body container-fluid">
             <div class="row">
-                <div class="fun-facts col">
-                    <h2>Working Memory Facts</h2>
-                    <ul>
-                        <li>Working memory refers to temporary workspace where we process and deal with new information</li>
-                        <li>Reserach suggests that we can only remember 4 to 5 pieces of new information at one time</li>
-                        <li>This can be overcome by a technique known as chunking, in which smaller pieces of information are placed into larger 'chunks' of information</li>
-                        <li>The current Guiness World Record for Longest Sequence of Objects Memorised in One Minute is currently 54 and was set on the 19th of December, 2020.</li>
-                    </ul>
-                </div>
-                <div class="game-play-area col-6">
-                    <div class="shape-display-box">
-                        
-                    </div>
-                </div>
                 <div class="game-rules col">
                     <h2>Game Rules</h2>
                     <ul>
@@ -42,11 +28,27 @@
                         <li>Don't forget to have fun!</li>
                     </ul>
                 </div>
+               
+                <div class="game-play-area col">
+                    <div class="shape-display-box">
+                        
+                    </div>
+                </div>
+                 <div class="fun-facts col">
+                    <h2>Working Memory Facts</h2>
+                    <ul>
+                        <li>Working memory refers to temporary workspace where we process and deal with new information</li>
+                        <li>Reserach suggests that we can only remember 4 to 5 pieces of new information at one time</li>
+                        <li>This can be overcome by a technique known as chunking, in which smaller pieces of information are placed into larger 'chunks' of information</li>
+                        <li>The current Guiness World Record for Longest Sequence of Objects Memorised in One Minute is currently 54 and was set on the 19th of December, 2020.</li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="start-button">
             <!--<button type="button" class="btn btn-success btn-lg" id="start-button" onclick="displaySequence(shapesToDisplay)">Start Game!</button>-->
             <button type="button" class="btn btn-success btn-lg" id="start-button" >Start Game!</button>
+            <button type="button" class="btn btn-primary btn-lg" id="submit-button">Submit Answer!</button>
         </div>
         <div class="game-shapes container-fluid">
             <div class="row shapes-parent">
@@ -69,18 +71,18 @@
         </div>
 
     </div>
-    <footer class="game-footer">
+    <footer class="game-footer fixed-bottom">
         <div class="container-fluid">
             <div class="row">
-                <div class="col pt-4">
-                    <h3>Streak:</h3> 
+                <div class="col">
+                    <h3>Streak: <span id="streak">0</span></h3> 
                 </div>
-                <div class="col pt-4">
+                <div class="col">
                    <!--- <button type="button" class="btn btn-primary btn-lg" id="submit-button" onclick="checkAnswer(shapesToDisplay)">Submit Answer!</button>-->
-                   <button type="button" class="btn btn-primary btn-lg" id="submit-button">Submit Answer!</button>
+                   <!--<button type="button" class="btn btn-primary btn-lg" id="submit-button">Submit Answer!</button>-->
                 </div>
-                <div class="col pt-4" id="high-score">
-                    <h3>High Score:</h3>
+                <div class="col" id="high-score">
+                    <h3>Session Record: <span id="session-record">0</span></h3>
                 </div>
             </div>
         </div>
