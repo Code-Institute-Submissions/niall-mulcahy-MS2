@@ -40,7 +40,9 @@ function shuffleArray() {
 }
 
 function displaySequenceCaller(){
-    displaySequence(shapesToDisplay);
+    //displaySequence(shapesToDisplay);
+    displaySequence(shapesToDisplay)
+        
 }
 
 
@@ -60,19 +62,13 @@ function displaySequence (shapesToDisplay) {
         time2 += 1500;    
     }
     answerArray.length = 0;
-    disableButtons(1);
-
-    /*setTimeout(function() {questionArray[0].clone().appendTo(".shape-display-box"); }, 500);
-    setTimeout(function() {$(".shape-display-box").empty(); }, 1500);
-    setTimeout(function() {questionArray[1].clone().appendTo(".shape-display-box"); }, 2000);
-    setTimeout(function() {$(".shape-display-box").empty(); }, 3000);
-    setTimeout(function() {questionArray[2].clone().appendTo(".shape-display-box"); }, 3500);
-    setTimeout(function() {$(".shape-display-box").empty(); }, 4500);
-*/
+    setTimeout(disableButtons, 1500 * shapesToDisplay);
+    
+    
 }
 
 $("#start-button").click(displaySequenceCaller);
-//$("#submit-button").click(checkAnswer);
+$("#submit-button").click(checkAnswer);
 
 
     square.click(function() {
@@ -97,9 +93,10 @@ $("#start-button").click(displaySequenceCaller);
 
 function correctNumberOfAnswers(p1){
     var returnValue = true;
-	if (answerArray.length != p1){
+    var valueOfP1 = p1;
+	if (answerArray.length != valueOfP1){
         returnValue = false;	
-        alert("lengths not equal");		
+        alert(`lengths not equal ans arr ay length = ${answerArray.length} = ${valueOfP1}`);		
 	}
     return returnValue;    
 }
@@ -117,7 +114,7 @@ function areAnswersCorrect(p1){
     } 
     return returnValue;
 }
-function checkAnswer(shapesToDisplay){
+function checkAnswer(){
     var userMessage;
     // Correct number of answers and all correct
     if (correctNumberOfAnswers(shapesToDisplay) && areAnswersCorrect(shapesToDisplay)){       
@@ -128,7 +125,7 @@ function checkAnswer(shapesToDisplay){
         // User did not enter correct solution
         // check if this is a new highest score
         if (shapesToDisplay - 1 > highScore){
-            userMessage +='\n\nYou did however set a new\nrecord of ${shapesToDisplay - 1} correct responses';
+            userMessage +=`\n\nYou did however set a new\nrecord of ${shapesToDisplay - 1} correct responses`;
 			highScore = shapesToDisplay - 1;
 			var highScoreCounter = document.getElementById('high-score');
 			highScoreCounter.innerHTML = highScore;
@@ -152,12 +149,12 @@ function disableButtons(param){
              disableAnswerButtons();
              break;
          case 3:
-			 disableAllButtons()
+             disableAllButtons()
+             break;
+          default  :
+            disableStartButtons(); 
                  
-    }
-        
-
-    
+    }        
 }
 
 function disableAnswerButtons(){
