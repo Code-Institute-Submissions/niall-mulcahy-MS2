@@ -135,7 +135,7 @@ html, body {
     width: 30px;
     background-color: #3e35ee; 
     margin: auto;
-    float: right;
+    float: left;
     margin-bottom: 1px;
     margin-right: 5px;
 }
@@ -148,6 +148,60 @@ html, body {
     margin: auto;
     border-radius: 30px;
     margin-bottom: 1px;
-    float: right;
+    float: left;
     margin-right: 5px;
+}
+
+.small-triangle {
+    height: 30px; 
+    width: 30px; 
+    border-left:15px solid transparent; 
+    border-right: 15px solid transparent; 
+    border-bottom: 30px solid #4D8B31; 
+    margin: auto;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 1px;
+}
+
+.small-trapezoid { 
+    position: relative; 
+    height: 30px; 
+    width: 30px; 
+    border-left: 8px solid transparent; 
+    border-right: 8px solid transparent; 
+    border-bottom: 30px solid #FF8427; 
+    margin: auto;
+    margin-bottom: 1px;
+    margin-right: 5px;
+    float: left;
+}
+
+.small-bookmark {
+    height: 27px; 
+    width: 30px; 
+    top: 2px; 
+    left: 6px;
+    border-left: 15px solid #EA2B1F; 
+    border-right: 15px solid #EA2B1F; 
+    border-bottom: 8px solid transparent; 
+    float: left;
+    margin-bottom: 1px;
+    margin-right: 5px;
+}
+
+@media only screen and (min-width: 976px) {
+    .fun-facts {
+    font-size: 1.1rem;
+    background-color: #F8EFA0;
+}
+
+    .game-rules {
+        font-size: 1.1rem;
+        background-color: #F8EFA0;
+    }
+
+    .game-footer {
+        height: 50px;
+    }
 }

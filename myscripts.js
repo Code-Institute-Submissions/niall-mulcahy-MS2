@@ -73,22 +73,38 @@ $("#submit-button").click(checkAnswer);
 
     square.click(function() {
         answerArray.push(0);
+        let smallSquare = document.createElement('div');
+        smallSquare.classList.add("small-square");   
+        document.getElementById("shape-display-box").appendChild(smallSquare);
+
     });
 
     triangle.click(function() {
         answerArray.push(1);
+        let smallTriangle = document.createElement('div');
+        smallTriangle.classList.add("small-triangle");   
+        document.getElementById("shape-display-box").appendChild(smallTriangle);
     });
 
     circle.click(function() {
         answerArray.push(2);
+        let smallCircle = document.createElement('div');
+        smallCircle.classList.add("small-circle");   
+        document.getElementById("shape-display-box").appendChild(smallCircle);
     });
 
     trapezoid.click(function() {
         answerArray.push(3);
+        let smallTrapezoid = document.createElement('div');
+        smallTrapezoid.classList.add("small-trapezoid");   
+        document.getElementById("shape-display-box").appendChild(smallTrapezoid);
     });
 
     bookmark.click(function() {
         answerArray.push(4);
+        let smallBookmark = document.createElement('div');
+        smallBookmark.classList.add("small-bookmark");   
+        document.getElementById("shape-display-box").appendChild(smallBookmark);
     });
 
 function correctNumberOfAnswers(p1){
@@ -116,11 +132,12 @@ function areAnswersCorrect(p1){
 }
 function checkAnswer(){
     var userMessage;
+    clearDisplayBox();
     // Correct number of answers and all correct
     if (correctNumberOfAnswers(shapesToDisplay) && areAnswersCorrect(shapesToDisplay)){       
         userMessage = `Well done you got ${shapesToDisplay} correct`;
-        let tempStreak = document.getElementById('streak');
-        tempStreak.innerHTML = shapesToDisplay;
+        let streak = document.getElementById('streak');
+        streak.innerHTML = shapesToDisplay;
         shapesToDisplay++;
     }else{
         userMessage = "User Input Incorrect";
@@ -131,11 +148,10 @@ function checkAnswer(){
 			highScore = shapesToDisplay - 1;
 			var highScoreCounter = document.getElementById('session-record');
             highScoreCounter.innerHTML = highScore;
-            //var streak = document.getElementById('streak');
-            tempStreak.innerHTML = 0;
 		}
         shapesToDisplay = numberOfShapes - 2;
         answerArray.length = 0;
+        streak.innerHTML = 0;
     }
     // Only enable start button   
     disableButtons(2);
@@ -196,3 +212,12 @@ function disableAllButtons(){
 	}
 }
 
+
+function clearDisplayBox(){
+    $(".shape-display-box").empty();
+}
+
+
+//Bug 29/03 @ 11:22 - if answer is wrong, user has to press the submit answer button a second time to input their answer after being told its wrong.
+//Always works if lengths are not equal, only breaks if lengths are equal but values aren't
+//Also Streak feature is behaving the same as the high score feature, not going to 0 after a fail - fixed as far as I can see
