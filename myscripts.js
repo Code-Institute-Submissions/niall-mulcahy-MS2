@@ -11,13 +11,31 @@ var circle = $(".css-shapes-circle");
 var trapezoid = $(".css-shapes-trapezoid");
 var bookmark = $(".css-shapes-bookmark");
 var shapes = [square, triangle, circle, trapezoid, bookmark];
+/*var smallSquare = document.createElement('div');
+smallSquare.classList.add("small-square");
+var smallTriangle = document.createElement('div');
+smallTriangle.classList.add("small-triangle");
+var smallCircle = document.createElement('div');
+smallCircle.classList.add("small-circle");
+var smallTrapezoid = document.createElement('div');
+smallTrapezoid.classList.add("small-trapezoid");
+var smallBookmark = document.createElement('div');
+smallBookmark.classList.add("small-Bookmark");
+*/
+var smallSquare = $(".small-square");
+var smallTriangle = $(".small-triangle");
+var smallCircle = $(".small-circle");
+var smallTrapezoid = $(".small-trapezoid");
+var smallBookmark = $(".small-bookmark");
+
+var smallShapes = [smallSquare, smallTriangle, smallCircle, smallTrapezoid, smallBookmark];
 setup();
 
 function setup(){
     populateQuestionArray();
     disableButtons(2);
-    shapesToDisplay = numberOfShapes - 2;
-
+    //shapesToDisplay = numberOfShapes - 2;
+    shapesToDisplay = 16;
 }
 
 
@@ -48,6 +66,7 @@ function displaySequenceCaller(){
 
 
 function displaySequence (shapesToDisplay) {
+    clearDisplayBox();
     shuffleArray();
     disableButtons(3);
 	
@@ -107,56 +126,64 @@ $("#submit-button").click(checkAnswer);
         document.getElementById("shape-display-box").appendChild(smallBookmark);
     });
 
-function correctNumberOfAnswers(p1){
-    var returnValue = true;
+function correctNumberOfAnswers(p1,p2){
+    var result = true;
     var valueOfP1 = p1;
 	if (answerArray.length != valueOfP1){
-        returnValue = false;	
-        alert(`lengths not equal ans arr ay length = ${answerArray.length} = ${valueOfP1}`);		
+        result = false;	
+       if (p2)
+        alert(`You did not answer the correct number of shapes:\nQuestions: ${valueOfP1}\nAnswers: ${answerArray.length}`);		
 	}
-    return returnValue;    
+    return result;    
 }
 
 function areAnswersCorrect(p1){
-    var returnValue = true;
+    var result = true;
     for (let i = 0; i < shapesToDisplay; i++){
 		if(answerArray[i] != questionArray[i]){
-            alert(`failed on ${i}`);
-            alert(`answerArray ${answerArray[i]}`);
-            alert(`questionArray ${questionArray[i]}`)
-			returnValue = false;			
+			result = false;			
 			//break;
 		}
     } 
-    return returnValue;
+    return result;
 }
 function checkAnswer(){
     var userMessage;
     clearDisplayBox();
     // Correct number of answers and all correct
-    if (correctNumberOfAnswers(shapesToDisplay) && areAnswersCorrect(shapesToDisplay)){       
+    if (correctNumberOfAnswers(shapesToDisplay,true) && areAnswersCorrect(shapesToDisplay)){       
         userMessage = `Well done you got ${shapesToDisplay} correct`;
         let streak = document.getElementById('streak');
         streak.innerHTML = shapesToDisplay;
+        alert(`${userMessage}`)
         shapesToDisplay++;
-    }else{
+    }else { 
+        alert("in loop");
         userMessage = "User Input Incorrect";
         // User did not enter correct solution
         // check if this is a new highest score
-        if (shapesToDisplay - 1 > highScore){
+        if (shapesToDisplay - 1 > highScore && shapesToDisplay - 1 > 2){
             userMessage +=`\n\nYou did however set a new\nrecord of ${shapesToDisplay - 1} correct responses`;
 			highScore = shapesToDisplay - 1;
 			var highScoreCounter = document.getElementById('session-record');
             highScoreCounter.innerHTML = highScore;
-		}
+        }
+        if (correctNumberOfAnswers(shapesToDisplay,false)){
+            //this means at least one answer incorrect, but number of answer is correct            
+            userMessage += `\n\n Do you wish to see where you went wrong?`
+            if (confirm(userMessage)){
+                createRows();
+                displayAnswerVariance(shapesToDisplay);
+                alert("he wants to see the answer");           
+            }
+        } 
         shapesToDisplay = numberOfShapes - 2;
         answerArray.length = 0;
         streak.innerHTML = 0;
     }
     // Only enable start button   
     disableButtons(2);
-    // Notify user of outcome of game 
-    alert(`${userMessage}`)	
+    // Notify user of outcome of game 	
 }
 
 
@@ -218,6 +245,46 @@ function clearDisplayBox(){
 }
 
 
-//Bug 29/03 @ 11:22 - if answer is wrong, user has to press the submit answer button a second time to input their answer after being told its wrong.
-//Always works if lengths are not equal, only breaks if lengths are equal but values aren't
-//Also Streak feature is behaving the same as the high score feature, not going to 0 after a fail - fixed as far as I can see
+function createRows () {
+    var row1a = document.createElement("div");
+    row1a.setAttribute('id', 'row1a')
+    document.getElementById("shape-display-box").appendChild(row1a);
+    var row1b = document.createElement("div");
+    row1b.setAttribute('id', 'row1b')
+    document.getElementById("shape-display-box").appendChild(row1b);
+    var row2a = document.createElement("div");
+    row2a.setAttribute('id', 'row2a')
+    document.getElementById("shape-display-box").appendChild(row2a);
+    var row2b = document.createElement("div");
+    row2b.setAttribute('id', 'row2b')
+    document.getElementById("shape-display-box").appendChild(row2b);
+    var row3a = document.createElement("div");
+    row3a.setAttribute('id', 'row3a')
+    document.getElementById("shape-display-box").appendChild(row3a);
+    var row3b = document.createElement("div");
+    row3b.setAttribute('id', 'row3b')
+    document.getElementById("shape-display-box").appendChild(row3b);
+}
+
+
+
+function displayAnswerVariance(p1) {
+ //p1 is shapes to display
+    let counter = Math.min(p1,10);
+       
+     for(let i = 0; i < counter; i++){
+        smallShapes[questionArray[i]].clone().appendTo("#row1a");
+    }
+
+    for(let i = 0; i < counter; i++){
+        smallShapes[answerArray[i]].clone().appendTo("#row1b");
+    }
+    counter = Math.min(p1,20);
+    for(let i = 10; i < counter; i++){
+        smallShapes[questionArray[i]].clone().appendTo("#row2a");
+    }
+
+    for(let i = 10; i < counter; i++){
+        smallShapes[answerArray[i]].clone().appendTo("#row2b");
+    }
+}

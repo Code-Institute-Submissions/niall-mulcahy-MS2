@@ -44,7 +44,7 @@ html, body {
 
 .start-button {
     margin-top: 10px;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     padding-right: 10px;
@@ -136,7 +136,7 @@ html, body {
     background-color: #3e35ee; 
     margin: auto;
     float: left;
-    margin-bottom: 1px;
+    margin-bottom: 3px;
     margin-right: 5px;
 }
 
@@ -147,7 +147,7 @@ html, body {
     background-color: #FFC800; 
     margin: auto;
     border-radius: 30px;
-    margin-bottom: 1px;
+    margin-bottom: 3px;
     float: left;
     margin-right: 5px;
 }
@@ -161,7 +161,7 @@ html, body {
     margin: auto;
     float: left;
     margin-right: 5px;
-    margin-bottom: 1px;
+    margin-bottom: 3px;
 }
 
 .small-trapezoid { 
@@ -172,7 +172,7 @@ html, body {
     border-right: 8px solid transparent; 
     border-bottom: 30px solid #FF8427; 
     margin: auto;
-    margin-bottom: 1px;
+    margin-bottom: 3px;
     margin-right: 5px;
     float: left;
 }
@@ -186,11 +186,14 @@ html, body {
     border-right: 15px solid #EA2B1F; 
     border-bottom: 8px solid transparent; 
     float: left;
-    margin-bottom: 1px;
+    margin-bottom: 3px;
     margin-right: 5px;
 }
+.hidden-shapes {
+    display: none;
+}
 
-@media only screen and (min-width: 976px) {
+@media only screen and (min-width: 1440px) {
     .fun-facts {
     font-size: 1.1rem;
     background-color: #F8EFA0;
@@ -204,4 +207,9 @@ html, body {
     .game-footer {
         height: 50px;
     }
+}
+
+#row2a {
+    /*border-top: solid 1px black;*/
+    padding-top: 2px;
 }
