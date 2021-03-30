@@ -44,7 +44,7 @@ html, body {
 
 .start-button {
     margin-top: 10px;
-    display: block;
+    display: flex;
     justify-content: center;
     align-items: center;
     padding-right: 10px;
@@ -213,3 +213,21 @@ html, body {
     /*border-top: solid 1px black;*/
     padding-top: 2px;
 }
+
+.float-left {
+    float: left;
+    margin-left: 20px;
+    clear: right;
+}
+
+.text-circle {
+    height: 30px; 
+    width: 30px; 
+    background-color: #000000; 
+}
+
+.text-circle-font {
+    font-size: large;
+    color: white; 
+}
+

@@ -34,8 +34,7 @@ setup();
 function setup(){
     populateQuestionArray();
     disableButtons(2);
-    //shapesToDisplay = numberOfShapes - 2;
-    shapesToDisplay = 16;
+    shapesToDisplay = numberOfShapes - 2;
 }
 
 
@@ -247,23 +246,39 @@ function clearDisplayBox(){
 
 function createRows () {
     var row1a = document.createElement("div");
-    row1a.setAttribute('id', 'row1a')
+    row1a.setAttribute('id', 'row1a');
+    row1a.classList.add("float-left");
     document.getElementById("shape-display-box").appendChild(row1a);
+
     var row1b = document.createElement("div");
-    row1b.setAttribute('id', 'row1b')
+    row1b.setAttribute('id', 'row1b');
+    row1b.classList.add("float-left");
     document.getElementById("shape-display-box").appendChild(row1b);
+
     var row2a = document.createElement("div");
-    row2a.setAttribute('id', 'row2a')
+    row2a.setAttribute('id', 'row2a');
+    row2a.classList.add("float-left");
     document.getElementById("shape-display-box").appendChild(row2a);
+
     var row2b = document.createElement("div");
-    row2b.setAttribute('id', 'row2b')
+    row2b.setAttribute('id', 'row2b');
+    row2b.classList.add("float-left");
     document.getElementById("shape-display-box").appendChild(row2b);
+
     var row3a = document.createElement("div");
-    row3a.setAttribute('id', 'row3a')
+    row3a.setAttribute('id', 'row3a');
     document.getElementById("shape-display-box").appendChild(row3a);
+
     var row3b = document.createElement("div");
-    row3b.setAttribute('id', 'row3b')
+    row3b.setAttribute('id', 'row3b');
     document.getElementById("shape-display-box").appendChild(row3b);
+
+    /*var questionCircle = document.createElement("div")
+    questionCircle.classList.add("text-circle");
+    var q = document.createElement("p");
+    q.classList.add("text-circle-font");
+    q.innerHTML("Q");
+    q.appendTo(questionCircle);*/
 }
 
 
@@ -288,3 +303,8 @@ function displayAnswerVariance(p1) {
         smallShapes[answerArray[i]].clone().appendTo("#row2b");
     }
 }
+
+
+/* for tomorrow, get rid of testing alerts,
+add the you answered, versus correct answer, figure out how to center the display answer function
+add comments and tidy functions*/
