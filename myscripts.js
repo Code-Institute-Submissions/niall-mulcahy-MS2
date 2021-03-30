@@ -9,8 +9,8 @@ var square = $(".css-shapes-square");
 var triangle = $(".css-shapes-triangle");
 var circle = $(".css-shapes-circle");
 var trapezoid = $(".css-shapes-trapezoid");
-var bookmark = $(".css-shapes-bookmark");
-var shapes = [square, triangle, circle, trapezoid, bookmark];
+var rectangle = $(".css-shapes-rectangle");
+var shapes = [square, triangle, circle, trapezoid, rectangle];
 /*var smallSquare = document.createElement('div');
 smallSquare.classList.add("small-square");
 var smallTriangle = document.createElement('div');
@@ -19,16 +19,16 @@ var smallCircle = document.createElement('div');
 smallCircle.classList.add("small-circle");
 var smallTrapezoid = document.createElement('div');
 smallTrapezoid.classList.add("small-trapezoid");
-var smallBookmark = document.createElement('div');
-smallBookmark.classList.add("small-Bookmark");
+var smallRectangle = document.createElement('div');
+smallRectangle.classList.add("small-rectangle");
 */
 var smallSquare = $(".small-square");
 var smallTriangle = $(".small-triangle");
 var smallCircle = $(".small-circle");
 var smallTrapezoid = $(".small-trapezoid");
-var smallBookmark = $(".small-bookmark");
+var smallRectangle = $(".small-rectangle");
 
-var smallShapes = [smallSquare, smallTriangle, smallCircle, smallTrapezoid, smallBookmark];
+var smallShapes = [smallSquare, smallTriangle, smallCircle, smallTrapezoid, smallRectangle];
 setup();
 
 function setup(){
@@ -118,11 +118,11 @@ $("#submit-button").click(checkAnswer);
         document.getElementById("shape-display-box").appendChild(smallTrapezoid);
     });
 
-    bookmark.click(function() {
+    rectangle.click(function() {
         answerArray.push(4);
-        let smallBookmark = document.createElement('div');
-        smallBookmark.classList.add("small-bookmark");   
-        document.getElementById("shape-display-box").appendChild(smallBookmark);
+        let smallRectangle = document.createElement('div');
+        smallRectangle.classList.add("small-rectangle");   
+        document.getElementById("shape-display-box").appendChild(smallRectangle);
     });
 
 function correctNumberOfAnswers(p1,p2){
@@ -273,12 +273,6 @@ function createRows () {
     row3b.setAttribute('id', 'row3b');
     document.getElementById("shape-display-box").appendChild(row3b);
 
-    /*var questionCircle = document.createElement("div")
-    questionCircle.classList.add("text-circle");
-    var q = document.createElement("p");
-    q.classList.add("text-circle-font");
-    q.innerHTML("Q");
-    q.appendTo(questionCircle);*/
 }
 
 
@@ -286,10 +280,24 @@ function createRows () {
 function displayAnswerVariance(p1) {
  //p1 is shapes to display
     let counter = Math.min(p1,10);
-       
+    let questionDiv = document.createElement("div");
+    questionDiv.setAttribute('id', 'questionDiv');
+    let answerDiv = document.createElement("div");
+    answerDiv.setAttribute('id', 'answerDiv');
+
+    addTextToSmallDivs();
+
+    questionDiv.classList.add("text-circle");
+    answerDiv.classList.add("text-circle");
+
+    document.getElementById("row1a").appendChild(questionDiv);
+
+
      for(let i = 0; i < counter; i++){
         smallShapes[questionArray[i]].clone().appendTo("#row1a");
     }
+
+    document.getElementById("row1b").appendChild(answerDiv);
 
     for(let i = 0; i < counter; i++){
         smallShapes[answerArray[i]].clone().appendTo("#row1b");
@@ -304,6 +312,10 @@ function displayAnswerVariance(p1) {
     }
 }
 
+
+function addTextToSmallDivs () {
+    $("questionDiv").append("q")
+}   
 
 /* for tomorrow, get rid of testing alerts,
 add the you answered, versus correct answer, figure out how to center the display answer function
