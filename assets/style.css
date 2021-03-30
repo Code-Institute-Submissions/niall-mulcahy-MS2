@@ -195,12 +195,20 @@ html, body {
 
 @media only screen and (min-width: 1440px) {
     .fun-facts {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     background-color: #F8EFA0;
-}
+    }
+
+    .game-body {
+        margin-bottom: 50px;
+    }
+
+    .shapes-parent {
+        margin-top: 50px;
+    }
 
     .game-rules {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         background-color: #F8EFA0;
     }
 
@@ -217,7 +225,8 @@ html, body {
 .float-left {
     float: left;
     margin-left: 20px;
-    clear: right;
+    display: block;
+    width: 100%;
 }
 
 .text-circle {
