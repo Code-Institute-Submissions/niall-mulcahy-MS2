@@ -255,3 +255,25 @@ html, body {
 .margin-top {
     margin-top: 20px;
 }
+
+.small-q {
+    height: 30px; 
+    width: 30px; 
+    background-color: #000000; 
+    color: white;
+    font-size: large;
+    margin-right: 5px;
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+.small-a {
+    height: 30px; 
+    width: 30px; 
+    background-color: #000000; 
+    color: white;
+    font-size: large;
+    margin-right: 5px;
+    margin-bottom: 3px;
+    text-align: center;
+}

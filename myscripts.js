@@ -282,21 +282,29 @@ function displayAnswerVariance(p1) {
  //p1 is shapes to display
     let counter = Math.min(p1,10);
 
-    appendText();
+    var smallQ1 = document.getElementById("small-q1");
+    document.getElementById("row1a").appendChild(smallQ1);
 
     for(let i = 0; i < counter; i++){
         smallShapes[questionArray[i]].clone().appendTo("#row1a");
     }
 
+    var smallA1 = document.getElementById("small-a1");
+    document.getElementById("row1b").appendChild(smallA1);
 
     for(let i = 0; i < counter; i++){
         smallShapes[answerArray[i]].clone().appendTo("#row1b");
     }
     counter = Math.min(p1,20);
+
+    var smallQ2 = document.getElementById("small-q2");
+    document.getElementById("row2a").appendChild(smallQ2);
     for(let i = 10; i < counter; i++){
         smallShapes[questionArray[i]].clone().appendTo("#row2a");
     }
 
+    var smallA2 = document.getElementById("small-a2");
+    document.getElementById("row2b").appendChild(smallA2);
     for(let i = 10; i < counter; i++){
         smallShapes[answerArray[i]].clone().appendTo("#row2b");
     }
