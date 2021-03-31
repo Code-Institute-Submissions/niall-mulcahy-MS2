@@ -35,11 +35,22 @@ html, body {
 .game-play-area {
     background-color: #EBF3FD;
     border: solid 2px black;
-    display: flex;
+    display: flex; 
+    /* flex: wrap; */
+    /* flex-direction: row; */
+    /* justify-content: center; */
+    align-content: center;
     justify-content: center;
-    align-items: center;
 }
 
+.shape-display-box {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
 
 
 .start-button {
@@ -105,12 +116,14 @@ html, body {
     margin: auto;
 }
 
-.css-shapes-rectangle{ 
-    position: relative; 
+ .css-shapes-triangle-down {
     height: 150px; 
-    width: 220px; 
-    background-color: #EA2B1F;
-}
+    width: 150px; 
+    border-left: 100px solid transparent; 
+    border-right: 100px solid transparent; 
+    border-top: 150px solid red; 
+    margin: auto;
+    }
 
 .shape {
     transform: scale(1);
@@ -131,10 +144,11 @@ html, body {
     height: 30px;
     width: 30px;
     background-color: #3e35ee; 
-    margin: auto;
-    float: left;
+    /* margin: auto; */
+    /*float: left;*/
     margin-bottom: 3px;
     margin-right: 5px;
+    flex-shrink: 1;
 }
 
 
@@ -142,11 +156,12 @@ html, body {
     height: 30px; 
     width: 30px; 
     background-color: #FFC800; 
-    margin: auto;
+    /* margin: auto; */
     border-radius: 30px;
     margin-bottom: 3px;
-    float: left;
+    /*float: left;*/
     margin-right: 5px;
+    flex-shrink: 1;
 }
 
 .small-triangle {
@@ -155,10 +170,11 @@ html, body {
     border-left:15px solid transparent; 
     border-right: 15px solid transparent; 
     border-bottom: 30px solid #4D8B31; 
-    margin: auto;
-    float: left;
+    /* margin: auto; */
+    /*float: left;*/
     margin-right: 5px;
     margin-bottom: 3px;
+    flex-shrink: 1;
 }
 
 .small-trapezoid {  
@@ -167,19 +183,24 @@ html, body {
     border-left: 8px solid transparent; 
     border-right: 8px solid transparent; 
     border-bottom: 30px solid #FF8427; 
-    margin: auto;
+    /* margin: auto; */
     margin-bottom: 3px;
     margin-right: 5px;
-    float: left;
+    flex-shrink: 1;
+    /*float: left;*/
 }
 
-.small-rectangle {
+.small-triangle-down {
     height: 30px; 
-    width: 35px;  
-    float: left;
+    width: 30px; 
+    border-left:15px solid transparent; 
+    border-right: 15px solid transparent; 
+    border-top: 30px solid red; 
+    /* margin: auto; */
+    /*float: left;*/
+    flex-shrink: 1;
+    margin-right: 5px;
     margin-bottom: 3px;
-    margin-right: 3px;
-    background-color: #EA2B1F;
 }
 .hidden-shapes {
     display: none;
@@ -211,9 +232,14 @@ html, body {
 
 
 .float-left {
-    float: none !important;
-    display: block;
+    display: flex;
+    flex-direction: row;
     width: 100%;
+    align-items: flex-start;
+}
+
+.float-left > * {
+    flex: 0 0 auto;
 }
 
 .text-circle {
@@ -224,4 +250,8 @@ html, body {
     font-size: large;
     margin-right: 5px;
     margin-bottom: 3px;
+}
+
+.margin-top {
+    margin-top: 20px;
 }

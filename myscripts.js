@@ -9,8 +9,8 @@ var square = $(".css-shapes-square");
 var triangle = $(".css-shapes-triangle");
 var circle = $(".css-shapes-circle");
 var trapezoid = $(".css-shapes-trapezoid");
-var rectangle = $(".css-shapes-rectangle");
-var shapes = [square, triangle, circle, trapezoid, rectangle];
+var triangleDown = $(".css-shapes-triangle-down");
+var shapes = [square, triangle, circle, trapezoid, triangleDown];
 /*var smallSquare = document.createElement('div');
 smallSquare.classList.add("small-square");
 var smallTriangle = document.createElement('div');
@@ -26,15 +26,16 @@ var smallSquare = $(".small-square");
 var smallTriangle = $(".small-triangle");
 var smallCircle = $(".small-circle");
 var smallTrapezoid = $(".small-trapezoid");
-var smallRectangle = $(".small-rectangle");
+var smallTriangleDown = $(".small-triangle-down");
 
-var smallShapes = [smallSquare, smallTriangle, smallCircle, smallTrapezoid, smallRectangle];
+var smallShapes = [smallSquare, smallTriangle, smallCircle, smallTrapezoid, smallTriangleDown];
 setup();
 
 function setup(){
     populateQuestionArray();
     disableButtons(2);
-    shapesToDisplay = numberOfShapes - 2;
+    //shapesToDisplay = numberOfShapes - 2;
+    shapesToDisplay = 14;
 }
 
 
@@ -118,11 +119,11 @@ $("#submit-button").click(checkAnswer);
         document.getElementById("shape-display-box").appendChild(smallTrapezoid);
     });
 
-    rectangle.click(function() {
+    triangleDown.click(function() {
         answerArray.push(4);
-        let smallRectangle = document.createElement('div');
-        smallRectangle.classList.add("small-rectangle");   
-        document.getElementById("shape-display-box").appendChild(smallRectangle);
+        let smallTriangleDown = document.createElement('div');
+        smallTriangleDown.classList.add("small-triangle-down");   
+        document.getElementById("shape-display-box").appendChild(smallTriangleDown);
     });
 
 function correctNumberOfAnswers(p1,p2){
@@ -157,7 +158,6 @@ function checkAnswer(){
         alert(`${userMessage}`)
         shapesToDisplay++;
     }else { 
-        alert("in loop");
         userMessage = "User Input Incorrect";
         // User did not enter correct solution
         // check if this is a new highest score
@@ -172,8 +172,7 @@ function checkAnswer(){
             userMessage += `\n\n Do you wish to see where you went wrong?`
             if (confirm(userMessage)){
                 createRows();
-                displayAnswerVariance(shapesToDisplay);
-                alert("he wants to see the answer");           
+                displayAnswerVariance(shapesToDisplay);         
             }
         } 
         shapesToDisplay = numberOfShapes - 2;
@@ -248,6 +247,7 @@ function createRows () {
     var row1a = document.createElement("div");
     row1a.setAttribute('id', 'row1a');
     row1a.classList.add("float-left");
+    row1a.classList.add("margin-top");
     document.getElementById("shape-display-box").appendChild(row1a);
 
     var row1b = document.createElement("div");
@@ -258,6 +258,7 @@ function createRows () {
     var row2a = document.createElement("div");
     row2a.setAttribute('id', 'row2a');
     row2a.classList.add("float-left");
+    row2a.classList.add("margin-top");
     document.getElementById("shape-display-box").appendChild(row2a);
 
     var row2b = document.createElement("div");
@@ -280,24 +281,13 @@ function createRows () {
 function displayAnswerVariance(p1) {
  //p1 is shapes to display
     let counter = Math.min(p1,10);
-    let questionDiv = document.createElement("div");
-    questionDiv.setAttribute('id', 'questionDiv');
-    let answerDiv = document.createElement("div");
-    answerDiv.setAttribute('id', 'answerDiv');
 
-    addTextToSmallDivs();
+    appendText();
 
-    questionDiv.classList.add("text-circle");
-    answerDiv.classList.add("text-circle");
-
-    document.getElementById("row1a").appendChild(questionDiv);
-
-
-     for(let i = 0; i < counter; i++){
+    for(let i = 0; i < counter; i++){
         smallShapes[questionArray[i]].clone().appendTo("#row1a");
     }
 
-    document.getElementById("row1b").appendChild(answerDiv);
 
     for(let i = 0; i < counter; i++){
         smallShapes[answerArray[i]].clone().appendTo("#row1b");
@@ -313,9 +303,10 @@ function displayAnswerVariance(p1) {
 }
 
 
-function addTextToSmallDivs () {
-    $("questionDiv").append("q")
-}   
+function appendText(){
+    
+}
+
 
 /* for tomorrow, get rid of testing alerts,
 add the you answered, versus correct answer, figure out how to center the display answer function
