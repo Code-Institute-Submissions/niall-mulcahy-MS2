@@ -11,17 +11,6 @@ var circle = $(".css-shapes-circle");
 var trapezoid = $(".css-shapes-trapezoid");
 var triangleDown = $(".css-shapes-triangle-down");
 var shapes = [square, triangle, circle, trapezoid, triangleDown];
-/*var smallSquare = document.createElement('div');
-smallSquare.classList.add("small-square");
-var smallTriangle = document.createElement('div');
-smallTriangle.classList.add("small-triangle");
-var smallCircle = document.createElement('div');
-smallCircle.classList.add("small-circle");
-var smallTrapezoid = document.createElement('div');
-smallTrapezoid.classList.add("small-trapezoid");
-var smallRectangle = document.createElement('div');
-smallRectangle.classList.add("small-rectangle");
-*/
 var smallSquare = $(".small-square");
 var smallTriangle = $(".small-triangle");
 var smallCircle = $(".small-circle");
@@ -69,6 +58,7 @@ function displaySequence (shapesToDisplay) {
     clearDisplayBox();
     shuffleArray();
     disableButtons(3);
+    document.getElementById('game-play-area').style.justifyContent = "center";
 	
     let time1 = 500;
     let time2 = 1500;
@@ -172,6 +162,7 @@ function checkAnswer(){
             userMessage += `\n\n Do you wish to see where you went wrong?`
             if (confirm(userMessage)){
                 createRows();
+                document.getElementById('game-play-area').style.justifyContent = "left";
                 displayAnswerVariance(shapesToDisplay);         
             }
         } 
@@ -283,31 +274,46 @@ function displayAnswerVariance(p1) {
     let counter = Math.min(p1,10);
 
     var smallQ1 = document.getElementById("small-q1");
-    document.getElementById("row1a").appendChild(smallQ1);
+    var clnQ1 = smallQ1.cloneNode(true);
+    var clnQ2 = smallQ1.cloneNode(true);
+
+    document.getElementById("row1a").appendChild(clnQ1);
+
+
+    //var smallQ1 = document.getElementById("small-q1");
+    //document.getElementById("row1a").appendChild(smallQ1);
 
     for(let i = 0; i < counter; i++){
         smallShapes[questionArray[i]].clone().appendTo("#row1a");
     }
 
+
     var smallA1 = document.getElementById("small-a1");
-    document.getElementById("row1b").appendChild(smallA1);
+    var clnA1 = smallA1.cloneNode(true);
+    var clnA2 = smallA1.cloneNode(true);
+
+    document.getElementById("row1b").appendChild(clnA1);
+    //var smallA1 = document.getElementById("small-a1");
+    //document.getElementById("row1b").appendChild(smallA1);
 
     for(let i = 0; i < counter; i++){
         smallShapes[answerArray[i]].clone().appendTo("#row1b");
     }
     counter = Math.min(p1,20);
 
-    var smallQ2 = document.getElementById("small-q2");
-    document.getElementById("row2a").appendChild(smallQ2);
-    for(let i = 10; i < counter; i++){
-        smallShapes[questionArray[i]].clone().appendTo("#row2a");
+    if (p1 > 10){
+
+        document.getElementById("row2a").appendChild(clnQ2);
+        for(let i = 10; i < counter; i++){
+            smallShapes[questionArray[i]].clone().appendTo("#row2a");
+        }
+
+        document.getElementById("row2b").appendChild(clnA2);
+        for(let i = 10; i < counter; i++){
+            smallShapes[answerArray[i]].clone().appendTo("#row2b");
+         }
     }
 
-    var smallA2 = document.getElementById("small-a2");
-    document.getElementById("row2b").appendChild(smallA2);
-    for(let i = 10; i < counter; i++){
-        smallShapes[answerArray[i]].clone().appendTo("#row2b");
-    }
 }
 
 
