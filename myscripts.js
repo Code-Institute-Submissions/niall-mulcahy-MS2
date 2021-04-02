@@ -78,7 +78,8 @@ function displaySequence (shapesToDisplay) {
     let time1 = 500;
     let time2 = 1500;
 
-    //This code block appends the shape to the user and then clears the game play area for the next shape to be shown
+    //This code block appends the shape to the shape display box and then clears the game play area for the next shape to be shown
+    //The timeout ensures that the shapes are shown one after the other
     for (let i = 0; i < shapesToDisplay; i++){
         setTimeout(function() {shapes[questionArray[i]].clone().appendTo(".shape-display-box"); }, time1);
         setTimeout(function() {$(".shape-display-box").empty(); }, time2);
