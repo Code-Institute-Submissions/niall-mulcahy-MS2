@@ -7,6 +7,8 @@ var shapesToDisplay;
 var answerArray = [];
 var answersToDate = 0;
 var highScore = 0;
+var rand;
+var temp;
 
 // Selecting the large shapes from the DOM here and making the shapes array
 var square = $(".css-shapes-square");

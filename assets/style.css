@@ -125,6 +125,8 @@ html, body {
     margin: auto;
     }
 
+
+/* The code to make the shapes appear this way when clicked was taken from a video on Youtube by freeCodeCamp.org */
 .shape {
     transform: scale(1);
 }

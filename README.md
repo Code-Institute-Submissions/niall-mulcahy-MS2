@@ -110,6 +110,17 @@ The project was deployed on GitHub pages.
 
 ## Credits
 
-The shapes that were used on the site were generated on a css shape generator tool which can be found at the link above. 
+- The shapes that were used on the site were generated on a css shape generator tool which can be found at the [here](https://coveloping.com/tools/css-shapes-generator).
+
+- The code to make the shapes unclickable was taken from [this](https://stackoverflow.com/questions/18083061/make-element-unclickable-click-things-behind-it) answer on stackoverflow.
+
+- Making the shapes be shrunk slightly when clicked was inspired by [this](https://www.youtube.com/watch?v=ZniVgo8U7ek&t=733s) video by freeCodeCamp.org on Youtube.
+
+## Acknowledgments
+
+I would like to thank the tutors at Code Institute who helped me with some technical issues at the beginning of this project. They were very patient with me and I greatly appreciated their help. I would also like to thank my mentor Gurjot, who discussed the project with me and reassured me regarding it's validity as an idea. Finally, I would like to thank my friends and family for all testing the game with me and trying to set their own personal records!
+
+
+
 
 
